@@ -28,6 +28,19 @@ class BaseController
     private $callBack;
     public $settingClass = SettingApi::class;
     private $settingApi;
+    public $managers = [
+        'cpt_manager'=>'CPT',
+        'taxonomy_manager'=>'Taxonomy',
+        'widget_manager'=>'Widget',
+        'media_manager'=>'Media',
+        'gallery_manager'=>'Gallery',
+        'testimonial_manager'=>'Testimonial',
+        'templates_manager'=>'Template',
+        'login_manager'=>'Login',
+        'membership_manager'=>'Membership',
+        'chat_manager'=>'Chat'
+
+    ];
 
     /**
      * BaseController constructor.
@@ -46,8 +59,8 @@ class BaseController
         $this->plugin_path = plugin_dir_path(dirname(__FILE__, 2));
         $this->plugin_url = plugin_dir_url(dirname(__FILE__, 2));
         $this->plugin = plugin_basename(dirname(__FILE__, 3)) . "/ronash-plugin.php";
-        if ($this->callbackClass) $this->callBack =  new $this->callbackClass();
-        if ($this->settingClass) $this->settingApi =  new $this->settingClass();
+        if ($this->callbackClass!=null) $this->callBack =  new $this->callbackClass();
+        if ($this->settingClass!=null) $this->settingApi =  new $this->settingClass();
 
     }
 
