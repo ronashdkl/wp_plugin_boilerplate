@@ -1,0 +1,11 @@
+{
+    "name": "ronashdhakal/ronash-plugin",
+    "description": "wp custom plugin",
+    "type": "library",
+    "license": "GPLv2",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Inc\\":"./inc"}
+    }
+}
