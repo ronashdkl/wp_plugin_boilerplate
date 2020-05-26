@@ -6,10 +6,12 @@
 
  namespace Inc;
 
+use Inc\base\CustomPostTypeController;
 use Inc\base\Enqueue;
-use Inc\base\Links;
-use Inc\pages\Admin;
-use Inc\postTypes\Books;
+use Inc\base\SettingLinks;
+use Inc\base\TaxonomyController;
+use Inc\base\WidgetController;
+use Inc\pages\Dashboard;
 
 final class Init{
 
@@ -18,12 +20,13 @@ final class Init{
      * @var array full list of classes
      */
     public static $services = [
-         Admin::class,
+         Dashboard::class,
          Enqueue::class,
-         Links::class,
-         Books::class
-         
-        
+         SettingLinks::class,
+         CustomPostTypeController::class,
+        TaxonomyController::class,
+        WidgetController::class
+
      ]; 
 
      /**

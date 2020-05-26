@@ -8,7 +8,6 @@
 namespace Inc\base;
 
 
-use Inc\api\FieldApi;
 use Inc\api\SettingApi;
 
 /**
@@ -19,28 +18,16 @@ use Inc\api\SettingApi;
  * @property string $callbackClass
  * @package Inc\base
  */
-class BaseController
+class BaseController extends GlobalConfig
 {
     protected $plugin_path;
     protected $plugin_url;
     protected $plugin;
-    public $callbackClass;
+    protected $callbackClass;
     private $callBack;
-    public $settingClass = SettingApi::class;
+    protected $settingClass = SettingApi::class;
     private $settingApi;
-    public $managers = [
-        'cpt_manager'=>'CPT',
-        'taxonomy_manager'=>'Taxonomy',
-        'widget_manager'=>'Widget',
-        'media_manager'=>'Media',
-        'gallery_manager'=>'Gallery',
-        'testimonial_manager'=>'Testimonial',
-        'templates_manager'=>'Template',
-        'login_manager'=>'Login',
-        'membership_manager'=>'Membership',
-        'chat_manager'=>'Chat'
 
-    ];
 
     /**
      * BaseController constructor.
@@ -66,11 +53,13 @@ class BaseController
 
     /**
      * @return SettingApi
+     * @throws \ErrorException
      */
     public function getSetting()
     {
+        if ($this->settingClass) return $this->settingApi;
+        else throw  new \ErrorException("settingApi class is not declared in " . get_called_class());
 
-         return $this->settingApi;
 
     }
 
@@ -97,4 +86,8 @@ class BaseController
 
         return require_once "$this->plugin_path/templates/$viewFile.php";
     }
+
+
+
+
 }

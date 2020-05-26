@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h1>Ronash Plugin</h1>
+    <h1><?=\Inc\base\GlobalConfig::PLUGIN_NAME?></h1>
     <?php settings_errors();?>
     <ul class="nav nav-tabs">
         <li class="active"><a href="#tab-1">Manage Settings</a></li>
@@ -10,8 +10,8 @@
         <div id="tab-1" class="tab-pane active">
             <form method="post" action="options.php">
                 <?php
-                settings_fields('ronash_plugin_settings');
-                do_settings_sections('ronash_plugin');
+                settings_fields(\Inc\base\GlobalConfig::generateName('plugin_settings'));
+                do_settings_sections(\Inc\base\GlobalConfig::PLUGIN_NAME);
                 submit_button();
                 ?>
             </form>

@@ -29,7 +29,7 @@ class SettingApi
      */
     public function register()
     {
-        if (!empty($this->adminPages)) {
+        if (!empty($this->adminPages) || !empty($this->adminSubPages)) {
             add_action('admin_menu', [$this, 'addAdminMenu']);
 
         }

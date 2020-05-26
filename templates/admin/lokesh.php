@@ -1,1 +1,0 @@
-<h1>Lokesh Dhakal plugin</h1>

@@ -10,7 +10,7 @@ namespace Inc\base;
 /**
  * Display plugin links
  */
-class Links extends BaseController{
+class SettingLinks extends BaseController{
  
     public function register(){
       
